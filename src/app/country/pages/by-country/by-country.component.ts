@@ -8,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class ByCountryComponent {
 
+  term: string = 'Hello world';
+
+  search() {
+    console.log(this.term);
+  }
 }
