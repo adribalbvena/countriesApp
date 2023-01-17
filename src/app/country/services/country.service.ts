@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+
 
 @Injectable({
   providedIn: 'root'
@@ -18,5 +20,9 @@ export class CountryService {
     const url = `${ this.apiUrl }/name/${ term }`;
 
     return this.http.get( url );
+        // .pipe(
+        //   //of is a function to generate observables
+        //   catchError( err => of([]) )
+        // );
   }
 }
