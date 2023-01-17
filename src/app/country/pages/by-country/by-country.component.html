@@ -14,11 +14,13 @@
 </div>
 
 <hr>
-<div class="alert alert-danger">
-    No 'ABC134' country found
+<div *ngIf="isError"
+    class="alert alert-danger">
+    No {{ term }} country found
 </div>
 
-<div class="row">
+<div *ngIf="!isError"
+    class="row">
     <div class="col">
         <table class="table table-hoover">
             <thead>
