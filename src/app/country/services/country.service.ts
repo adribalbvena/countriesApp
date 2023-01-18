@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { Country } from '../interfaces/country-interface';
 
 
 @Injectable({
@@ -15,11 +16,11 @@ export class CountryService {
   constructor( private http: HttpClient ) { }
 
   //Observable is a generic
-  searchCountry( term : string ): Observable<any> {
+  searchCountry( term : string ): Observable<Country[]> {
 
     const url = `${ this.apiUrl }/name/${ term }`;
 
-    return this.http.get( url );
+    return this.http.get<Country[]>( url );
         // .pipe(
         //   //of is a function to generate observables
         //   catchError( err => of([]) )
