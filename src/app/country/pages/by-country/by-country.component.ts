@@ -23,9 +23,11 @@ export class ByCountryComponent {
     this.countryService.searchCountry( this.term )
       .subscribe( (countries) => {
         console.log(countries);
+        this.countries = countries;
 
       }, (err) => {
         this.isError = true;
+        this.countries = [];
       });
   }
 }
