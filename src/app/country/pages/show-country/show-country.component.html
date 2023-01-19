@@ -1,1 +1,57 @@
-<p>show-country works!</p>
+<div *ngIf="!country; else divCountry"
+    class="alert alert-info">
+    Please wait...
+</div>
+
+<ng-template #divCountry>
+
+    <div class="row" >
+        <div class="col-12">
+            <h1>{{country.name.common}}</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-4">
+            <h3>Flag</h3>
+            <img [src]="country.flags.svg" class="img-thumbnail"/>
+        </div>
+    
+        <div class="col">
+            <h3>Information</h3>
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <strong>Capital:</strong> {{country.capital}}
+                </li>
+                <li class="list-group-item">
+                    <strong>Continent:</strong> {{country.continents}}
+                </li>
+                <li class="list-group-item">
+                    <strong>Population:</strong> {{country.population | number}}
+                </li>
+                <li class="list-group-item">
+                    <strong>Area:</strong> {{country.area | number}} km2
+                </li>                               
+                <li class="list-group-item">
+                    <strong>Time Zone:</strong> {{country.timezones}}
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <h3>Translations</h3>
+    <div class="row">
+        <div class="col">
+            <span class="badge bg-primary margin font">{{ country.translations['spa'].common }}</span>
+            <span class="badge bg-primary margin font">{{ country.translations['deu'].common }}</span>
+            <span class="badge bg-primary margin font">{{ country.translations['fra'].common }}</span>
+            <span class="badge bg-primary margin font">{{ country.translations['ita'].common }}</span>
+            <span class="badge bg-primary margin font">{{ country.translations['pol'].common }}</span>
+            <span class="badge bg-primary margin font">{{ country.translations['jpn'].common }}</span>
+            <span class="badge bg-primary margin font">{{ country.translations['rus'].common }}</span>
+        </div>
+    </div>
+
+</ng-template>
+
+
