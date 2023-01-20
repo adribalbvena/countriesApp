@@ -12,8 +12,26 @@
     </div>
 </div>
 
-<hr>   
 </div>
+
+<ul *ngIf="showSuggestions"
+    class="list-group">
+    <li *ngFor="let country of suggestedCountries"
+        class="list-group-item list-group-item-action">
+        <a class="nav-link"
+            [routerLink]="['/country', country.cca2]">
+            {{ country.name.common }}
+        </a>
+    </li>
+    <li class="list-group-item list-group-item-action"
+        (click)="searchSuggested( term )">
+    <a class="nav-link">
+        Search "{{ term }}"
+    </a>
+</li>
+</ul>
+
+<hr>   
 
 
 <div *ngIf="isError"
